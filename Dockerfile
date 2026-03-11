@@ -12,12 +12,12 @@ RUN a2enmod rewrite \
 # Copy the fleetco app into Apache's web root
 COPY fleetco/ /var/www/html/
 
-# Copy startup script
-COPY start.sh /usr/local/bin/start.sh
-RUN chmod +x /usr/local/bin/start.sh
-
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html/ \
     && chmod -R 755 /var/www/html/
+
+# Write the startup script directly (avoids Windows CRLF issues)
+RUN printf '#!/bin/bash\nsed -i "s/Listen 80/Listen ${PORT:-80}/" /etc/apache2/ports.conf\nsed -i "s/<VirtualHost \\*:80>/<VirtualHost *:${PORT:-80}>/" /etc/apache2/sites-available/000-default.conf\necho "Starting Apache on port ${PORT:-80}"\napache2-foreground\n' > /usr/local/bin/start.sh \
+    && chmod +x /usr/local/bin/start.sh
 
 CMD ["start.sh"]
