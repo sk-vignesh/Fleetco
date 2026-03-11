@@ -237,28 +237,28 @@ class ConnectionManager
 		$data["dbType"] = 0;
 		$data["connId"] = "carrier_at_localhost";
 		$data["connName"] = "carrier at localhost";
-		$data["connStringType"] = "mysql";
-		$data["connectionString"] = "mysql;localhost;root;;;carrier;;1"; //currently unused
+		$data["connStringType"] = "postgre";
+		$data["connectionString"] = ""; //currently unused
 		
 		$this->_connectionsIdByName["carrier at localhost"] = "carrier_at_localhost";
 		
 		$data["connInfo"] = array();
-		$data["ODBCUID"] = "root";
+		$data["ODBCUID"] = "postgres";
 		$data["ODBCPWD"] = "";
-		$data["leftWrap"] = "`";
-		$data["rightWrap"] = "`";
+		$data["leftWrap"] = "\"";
+		$data["rightWrap"] = "\"";
 		
 		$data["DBPath"] = "db"; //currently unused	
 		$data["useServerMapPath"] = 1; //currently unused
 		
-		$data["connInfo"][0] = "database_host_name";
-		$data["connInfo"][1] = "database_user_name";
-		$data["connInfo"][2] = "database_user_password";
-		$data["connInfo"][3] = "database_port_number";
-		$data["connInfo"][4] = "database_name";
+		$data["connInfo"][0] = "db.gbvoammydokaovlevgfv.supabase.co";
+		$data["connInfo"][1] = "postgres";
+		$data["connInfo"][2] = "a5eg.G4mRSi8U6g";
+		$data["connInfo"][3] = "port=5432 sslmode=require";
+		$data["connInfo"][4] = "postgres";
 		$data["connInfo"][5] = ""; //currently unused
 		$data["connInfo"][6] = "1"; //currently unused
-		$data["ODBCString"] = "DRIVER={MySQL ODBC 3.51 Driver};Server=localhost;Uid=root;Pwd=;Database=carrier;OPTION=3";
+		$data["ODBCString"] = "";
 		// encription set
 		$data["EncryptInfo"] = array();
 		$data["EncryptInfo"]["mode"] = 2;
