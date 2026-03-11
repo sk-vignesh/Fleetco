@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y libpq-dev \
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Copy app files into Apache's web root
-COPY . /var/www/html/
+# Copy the fleetco app into Apache's web root
+COPY fleetco/ /var/www/html/
 
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html/ \
